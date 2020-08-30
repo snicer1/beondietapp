@@ -1,0 +1,50 @@
+input InsertIngredientInput {
+    name: String!
+    carbs: Float!
+    protein: Float!
+    fat: Float!
+    kcal: Int!
+}
+
+type DeleteStatus {
+    id: ID!
+}
+
+input UpdateIngredientInput {
+    id: Int!
+    name: String!
+    carbs: Float!
+    protein: Float!
+    fat: Float!
+    kcal: Int!
+}
+
+
+input IngredientGrams {
+    ingredient_id: Int!
+    grams: Int!
+}
+
+input InsertReceipeInput {
+    name: String!
+    meal_type: meal_type!
+    ingredients: [IngredientGrams!]!
+}
+
+input UpdateReceipeInput {
+    id: Int!
+    name: String!
+    meal_type: meal_type!
+    ingredients: [IngredientGrams!]!
+}
+
+
+type Mutation {
+    createIngredient(input: InsertIngredientInput!): Ingredient!
+    updateIngredient(input: UpdateIngredientInput!): Ingredient!
+    deleteIngredient(id: Int!): DeleteStatus
+    createRecipe(input: InsertReceipeInput!): Recipe!
+    updateRecipe(input: UpdateReceipeInput!): Recipe!
+    deleteReceipe(id: Int!): DeleteStatus
+}
+

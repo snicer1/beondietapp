@@ -1,0 +1,8 @@
+/venv/
+.idea/
+*.log
+/management/
+/frontend/
+/postgres-data/
+__pycache__
+*.pyc
