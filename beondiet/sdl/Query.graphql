@@ -1,0 +1,39 @@
+enum meal_type {
+  breakfast
+  lunch
+  dinner
+}
+
+type IngredientGram {
+    ingredient_id: [Int!]!
+    grams: [Int!]!
+}
+
+type Ingredient {
+  id: ID!
+  name: String!
+  carbs: Float!
+  protein: Float!
+  fat: Float!
+  kcal: Int!
+}
+
+type Recipe {
+  id: ID!
+  version: Int!
+  name: String!
+  last_update: String!
+  meal_type: meal_type!
+  grams: Int
+  carbs: Float
+  protein: Float
+  fat: Float
+  kcal: Int
+}
+
+type Query {
+  ingredients: [Ingredient]
+  ingredient(id: ID!): Ingredient
+  recipes: [Recipe]
+  recipe(id: ID!): Recipe
+}
